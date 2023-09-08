@@ -37,7 +37,7 @@ require_once '../../layouts/header.view.php';
                     <div class="card">
                         <div class="card-body">
                             <!-- table -->
-                            <table class="table table-hover table-bordered" id="tabla-clientes">
+                            <table id="listaClientes" class="table table-hover table-bordered">
                                 <thead>
                                     <tr>
                                         <th>Id</th>
@@ -73,6 +73,11 @@ require_once '../../layouts/header.view.php';
     <!--end::App Content-->
 </main>
 
-
+<script>
+$(document).ready(function(){
+$('#listaClientes').DataTable({
+});
+});
+</script>
 
 <?php require_once '../../layouts/footer.view.php'; ?>
