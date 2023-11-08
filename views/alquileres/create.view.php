@@ -62,7 +62,14 @@ require_once '../../layouts/header.view.php';
                                         <table class="table table-striped">
                                             <thead>
                                             <tr>
-                                                <th><input class="form form-control" placeholder="Inventario de película" type="text" name="" id="itemcode"></th>
+                                                <th>
+                                                    <select name="" id="itemcode" class="form-control">
+                                                        <option value="" hidden>Seleccione un item</option>
+                                                        <?php foreach ($inventarios as $inventario) : ?>
+                                                            <option value="<?= $inventario->id_inventario ?>"> <?= $inventario->pelicula()->titulo ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </th>
                                                 <th><input class="form form-control" placeholder="fecha alquiler" type="datetime-local" value="<?= date('Y-m-d H:i:s') ?>"name="" id="itemfechaalquiler"></th>
                                                 <th><input class="form form-control" placeholder="fecha devolución" type="datetime-local" value="<?= date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s') . "+3 day")) ?>"name="" id="itemfechadevolucion"></th>
                                                 <th>Acción</th>

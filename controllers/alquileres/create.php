@@ -5,9 +5,11 @@ date_default_timezone_set('America/Argentina/Buenos_Aires');
 require_once('../../models/Alquileres.php');
 require_once('../../models/Cliente.php');
 require_once('../../models/Empleados.php');
+require_once('../../models/Inventario.php');
 
 $clientes = Cliente::all();
 $empleados = Empleado::all();
+$inventarios = Inventario::all();
 
 
 if (isset($_POST['submit'])) {
