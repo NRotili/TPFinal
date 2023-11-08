@@ -11,7 +11,7 @@ class Cliente extends Conexion {
     {
         $conexion = new Conexion();
         $conexion->conectar();
-        $pre = mysqli_prepare($conexion->con, "SELECT * FROM cliente LIMIT 50");
+        $pre = mysqli_prepare($conexion->con, "SELECT * FROM cliente ORDER BY nombre");
         $pre->execute();
         $res = $pre->get_result();
 
