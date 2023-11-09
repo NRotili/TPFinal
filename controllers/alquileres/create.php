@@ -12,18 +12,20 @@ $empleados = Empleado::all();
 $inventarios = Inventario::all();
 
 
-if (isset($_POST['submit'])) {
-    // $alquiler = new Alquileres();
-    // $alquiler->fecha_alquiler = date("Y-m-d H:i:s");
-    // $alquiler->id_inventario = $_POST['id_inventario'];
-    // $alquiler->id_cliente = $_POST['id_cliente'];
-    // $alquiler->id_empleado = $_POST['id_empleado'];
-    // $alquiler->create();
+if (isset($_POST['enviar'])) {
 
-// $alquiler->id_inventario = 367;
-// $alquiler->id_cliente = 130;
-// $alquiler->id_empleado = 1;
-// $alquiler->create();
+
+    $detalles = $_POST['item'];
+
+    for($i=0; $i<count($detalles['code']); $i++){
+        $alquiler = new Alquileres();
+        $alquiler->id_inventario = $detalles['code'][$i];
+        $alquiler->fecha_alquiler = $detalles['fechaalquiler'][$i];
+        $alquiler->fecha_devolucion = $detalles['fechadevolucion'][$i];
+        $alquiler->id_cliente = $_POST['id_cliente'];
+        $alquiler->id_empleado = $_POST['id_empleado'];
+        $alquiler->create();
+    }
 }
 
 require_once('../../views/alquileres/create.view.php');

@@ -85,7 +85,11 @@ require_once '../../layouts/header.view.php';
 
                                     </div>
                                 </div>
-                                <input type="submit" name="enviar" value="Save">
+                                <div class="form-row">
+
+                                    <input class="btn btn-info btn-block" type="submit" name="enviar" value="ALQUILAR">
+
+                                </div>
                             </form>
                         </div>
                     </div>
